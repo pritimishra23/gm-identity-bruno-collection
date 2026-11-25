@@ -1,0 +1,34 @@
+info:
+  name: Admin Email update
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{identity-base-url}}/admin/customer/email"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Accept
+      value: application/json
+    - name: X-Requested-From
+      value: <<mission_name>>
+    - name: X-Agent-Username
+      value: <<agent_name>>
+    - name: X-Update-Reason
+      value: <<update reason>>
+  body:
+    type: json
+    data: |-
+      {
+        "id": "",
+        "current_email": "",
+        "new_email": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

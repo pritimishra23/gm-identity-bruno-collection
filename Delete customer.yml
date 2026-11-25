@@ -1,0 +1,30 @@
+info:
+  name: Delete customer
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{identity-base-url}}/admin/customer?email=&reason_to_delete="
+  headers:
+    - name: Accept
+      value: application/json
+    - name: X-Requested-From
+      value: <<mission_name>>
+    - name: X-Agent-Username
+      value: <<agent_name>>
+    - name: X-Update-Reason
+      value: <<delete reason>>
+  params:
+    - name: email
+      value: ""
+      type: query
+    - name: reason_to_delete
+      value: ""
+      type: query
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

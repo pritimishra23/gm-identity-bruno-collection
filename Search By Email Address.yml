@@ -1,0 +1,29 @@
+info:
+  name: Search By Email Address
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{identity-base-url}}/admin/customer/searchbyemail"
+  headers:
+    - name: X-Requested-From
+      value: <<mission_name>>
+  body:
+    type: json
+    data: |-
+      {
+        "email_to_search": ""
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: baseUrl
+      value: http://localhost:8443
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
